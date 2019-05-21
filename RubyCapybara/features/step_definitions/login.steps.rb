@@ -5,11 +5,11 @@ Dado("que estou na tela inicial") do
   end
 
 Quando("eu preencher os campos obrigatórios") do |table|
-  
+  login=Login.new
      @data = table.hashes
         @data.each do |valor|
             @login=valor['Nome']
-            @cpf=valor['Cpf'].to_i
+            @cpf=login.geraCPF## valor['Cpf'].to_i
             @email=valor['Email']
             @celular=valor['Celular']
             @objetivo=valor['Objetivo']
