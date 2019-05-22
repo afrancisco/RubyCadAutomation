@@ -1,5 +1,7 @@
 require 'capybara'
 require 'capybara/cucumber'
+require 'site_prism'
+
 
     Capybara.register_driver :selenium do |app|
             http_client = Selenium::WebDriver::Remote::Http::Default.new

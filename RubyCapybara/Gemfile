@@ -7,6 +7,8 @@ source "http://rubygems.org"
 
 gem 'capybara'
 gem 'cucumber'
+gem 'page-object'
 gem 'pry'
 gem 'selenium-webdriver'
+gem 'site_prism'
 

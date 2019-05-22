@@ -5,27 +5,33 @@ Dado("que estou na tela inicial") do
   end
 
 Quando("eu preencher os campos obrigatórios") do |table|
-  login=Login.new
-     @data = table.hashes
-        @data.each do |valor|
-            @login=valor['Nome']
-            @cpf=login.geraCPF## valor['Cpf'].to_i
-            @email=valor['Email']
-            @celular=valor['Celular']
-            @objetivo=valor['Objetivo']
-            fill_in 'full_name', :with =>@login
-            fill_in 'cpf', :with =>@cpf
-            fill_in 'primary_email', :with =>@email
-            fill_in 'phone1', :with =>@celular
-            if @objetivo=="cambio"
-                click_on(id: 'reason2')
-            else @objetivo=="investimento"
-            click_button("reason1")
-            end  
-            end
+ ##Todo Verificar como o capybara utiliza os métodos dentro de classes
+ 
+ Login.new.cadastraUsuario(table)
+
+    #  @data = table.hashes
+    #     @data.each do |valor|
+    #         @login=valor['Nome']
+    #         @cpf= valor['Cpf'].to_i
+    #         @email=valor['Email']
+    #         @celular=valor['Celular']
+    #         @objetivo=valor['Objetivo']
+    #        login_form
+    #         if @objetivo=="cambio"
+    #             click_on(id: 'reason2')
+    #         else @objetivo=="investimento"
+    #         click_button("reason1")
+    #         end  
+    #     end
 
   end
-  
+
+  # within login_form do
+  #          fill_in 'full_name', :with =>@login
+  #           fill_in 'cpf', :with =>@cpf
+  #           fill_in 'primary_email', :with =>@email
+  #           fill_in 'phone1', :with =>@celular
+  # end
   Quando("eu clicar em Seguir") do
     click_button("buttonNext")    
        
@@ -45,10 +51,25 @@ Quando("eu preencher os campos obrigatórios") do |table|
   end
   
   Quando("eu preencher os campos obrigatórios com cpf e email já cadastrados") do |table|
-    # table is a Cucumber::MultilineArgument::DataTable
-    pending # Write code here that turns the phrase above into concrete actions
+    #@data = table.hashes
+    #     @data.each do |valor|
+    #         @login=valor['Nome']
+    #         @cpf= valor['Cpf'].to_i
+    #         @email=valor['Email']
+    #         @celular=valor['Celular']
+    #         @objetivo=valor['Objetivo']
+    #         fill_in 'full_name', :with =>@login
+    #         fill_in 'cpf', :with =>@cpf
+    #         fill_in 'primary_email', :with =>@email
+    #         fill_in 'phone1', :with =>@celular
+    #         if @objetivo=="cambio"
+    #             click_on(id: 'reason2')
+    #         else @objetivo=="investimento"
+    #         click_button("reason1")
+    #         end  
+    #         end
   end
   
   Então("o sistema Exibe a mensagem informando que o usuário já está cadastrado") do
-    pending # Write code here that turns the phrase above into concrete actions
+    expect(page).to have_css(".message-modal", text: "O CPF informado já consta em nossa base de dados, por favor, entrar em contato com a área de cadastro.")
   end
