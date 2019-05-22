@@ -23,7 +23,7 @@ Cenario: Iniciar abertura de conta de com usuário Investimento
 Cenario: Iniciar abertura de conta de com usuário existente
     Quando eu preencher os campos obrigatórios com cpf e email já cadastrados
     |Nome                       | Cpf       | Email                             |Celular        |Objetivo    |
-    |Todo Tipo de investimento  |53912212856|  humberto.santos@cedrotech.com    |34923456789	|investimento|
+    |Todo Tipo de investimento  |53912212856|  humberto.santos@cedrotech.com    |34923456789	|cambio|
     E eu clicar em Seguir
     Então o sistema Exibe a mensagem informando que o usuário já está cadastrado
    

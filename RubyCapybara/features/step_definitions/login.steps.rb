@@ -31,7 +31,7 @@ Quando("eu preencher os campos obrigatórios") do |table|
     click_button("buttonNext")    
        
   end
-  
+#Todo Implementar o httpparty  
 #   Quando("o Serviço de validação de usuário retornar sucesso") do
 #     pending # Write code here that turns the phrase above into concrete actions
 #   end
